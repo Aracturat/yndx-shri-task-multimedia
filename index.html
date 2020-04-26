@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test streams</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="initVideo.js"></script>
+    <style>
+        .video {
+            background: white;
+            width: 300px;
+            height: 200px;
+
+            transition: all 0.25s ease-out;
+        }
+
+        .video--fullscreen {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+
+            z-index: 1;
+        }
+
+        .controls {
+            visibility: hidden;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            z-index: 2;
+        }
+
+        .controls--visible {
+            visibility: visible;
+        }
+
+    </style>
+</head>
+<body>
+
+<video id="video-1" class="video" muted autoplay></video>
+<video id="video-2" class="video" muted autoplay></video>
+<br>
+<video id="video-3" class="video" muted autoplay></video>
+<video id="video-4" class="video" muted autoplay></video>
+<div class="controls">
+    <button class="back-button">Все камеры</button>
+</div>
+<script>
+    initVideo(
+        document.getElementById('video-1'),
+        'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fsosed%2Fmaster.m3u8'
+    );
+
+    initVideo(
+        document.getElementById('video-2'),
+        'http://localhost:9191/live?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fstairs%2Fmaster.m3u8'
+    );
+
+    initVideo(
+        document.getElementById('video-3'),
+        'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fdog%2Fmaster.m3u8'
+    );
+
+    initVideo(
+        document.getElementById('video-4'),
+        'http://localhost:9191/live?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fstreet%2Fmaster.m3u8'
+    );
+
+    initControls();
+</script>
+
+
+</body>
+</html>
