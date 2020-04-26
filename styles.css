@@ -1,0 +1,35 @@
+.video {
+    background: white;
+    width: 300px;
+    height: 200px;
+
+    transition: all 0.25s ease-out;
+}
+
+.video--fullscreen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+}
+
+.controls {
+    visibility: hidden;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
+    background: white;
+}
+
+.controls--visible {
+    visibility: visible;
+}

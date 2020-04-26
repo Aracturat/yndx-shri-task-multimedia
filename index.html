@@ -4,41 +4,8 @@
     <meta charset="UTF-8">
     <title>Test streams</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link href="styles.css" rel="stylesheet"/>
     <script src="initVideo.js"></script>
-    <style>
-        .video {
-            background: white;
-            width: 300px;
-            height: 200px;
-
-            transition: all 0.25s ease-out;
-        }
-
-        .video--fullscreen {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-
-            z-index: 1;
-        }
-
-        .controls {
-            visibility: hidden;
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            z-index: 2;
-        }
-
-        .controls--visible {
-            visibility: visible;
-        }
-
-    </style>
 </head>
 <body>
 
@@ -49,6 +16,11 @@
 <video id="video-4" class="video" muted autoplay></video>
 <div class="controls">
     <button class="back-button">Все камеры</button>
+    <br>
+    <label for="brightness">Яркость</label>
+    <input type="range" min="0" max="200" value="100" id="brightness"/>
+    <label for="contrast">Контрастность</label>
+    <input type="range" min="0" max="200" value="100" id="contrast"/>
 </div>
 <script>
     initVideo(
